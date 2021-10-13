@@ -1,0 +1,6 @@
+# Files
+.idea/
+.DS_Store
+
+# Database files
+database-data/mysql
