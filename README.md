@@ -78,6 +78,17 @@ drush -y si social --db-url=mysql://drupal:drupal@mysql/drupal --account-pass=ad
 
 ## Xdebug and PHP Storm
 
+Xdebug should work out of the box from the server, there is only one configuration needed:
+
+1. Preference > Settings > PHP > Servers;
+2. Add a new server with name `phpstorm`;
+3. Host should be `http://[PROJECT_BASE_URL].docker.localhost`;
+4. Port `[PROJECT_PORT]`;
+5. Check `Use path mappings`;
+6. The root folder of your `SOCIAL-DIRECTORY` should map to `/var/www/html`;
+7. Save > Good to go!
+
+
 ## Custom directories
 
 This configuration has two custom directories:
