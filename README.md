@@ -1,4 +1,4 @@
-# Docker4Drupal
+# docker-4-drupal-custom
 
 This is a custom "ready-to-use" docker stack based on `docker4Drupal`. If you are looking for more information over the original `docker4drupal`, please refer to the section [Docker-based Drupal stack](#docker-based-drupal-stack)
 
@@ -6,7 +6,7 @@ For a quick set-up guide please check the steps below.
 
 ## Assumptions
 
-This docker4drupal custom config assumes a couple of things:
+This `docker-4-drupal-custom` config assumes a couple of things:
 
 1. We removed the `docker-compose.override.yml` file because this should be a copy/paste docker stack;
 2. When using Xdebug, the `IDE_KEY` is fixed to `phpstorm`, feel free to change it;
@@ -14,7 +14,7 @@ This docker4drupal custom config assumes a couple of things:
 4. There are a lot of more options for this docker stack, but for the purpose of this custom set up we removed them;
 5. We are not using mutagen due to permission issues;
 6. The following tools are enabled by default:
-   1. PHP My admin;
+   1. phpMyAdmin;
    2. Mailhog;
 
 ## Installation example
@@ -25,7 +25,7 @@ Run the following command to install Drupal Social, and replace `SOCIAL-DIRECTOR
 composer create-project goalgorilla/social_template:dev-master SOCIAL-DIRECTORY --no-interaction
 ```
 
-Copy the entire content of docker4drupal custom folder to a `DOCKER-DIRECTORY` of your choice inside the newly cloned Drupal Social directory.
+Copy the entire content of `docker-4-drupal-custom` folder to a `DOCKER-DIRECTORY` of your choice inside the newly cloned Drupal Social directory.
 
 The folder structure should be like this:
 
@@ -34,11 +34,11 @@ The folder structure should be like this:
   - [CLONED DRUPAL SOCIAL FOLDERS AND FILES]
   - [DOCKER-DIRECTORY]
      - Makefile ( to execute the docker commands )
-     - Other files from this current docker4drupal custom repo
+     - Other files from this current docker-4-drupal-custom repo
   - [HTML - DRUPAL ACTUAL FILES] 
 ```
 
-Once you copy the docker4drupal custom files to the `DOCKER-DIRECTORY` edit the `.env` file and change the following to your choice:
+Once you copy the `docker-4-drupal-custom` files to the `DOCKER-DIRECTORY` edit the `.env` file and change the following to your choice:
 ```
 COMPOSE_PROJECT_NAME=[COMPOSE_PROJECT_NAME]
 PROJECT_NAME=[PROJECT_NAME]
@@ -61,7 +61,14 @@ drush -y site:install social --db-url=mysql://drupal:drupal@mysql:3306/drupal
 
 Once the installation finishes, the website is available through the same url that was configured at `.env` file:
 ```
+# Website
 http://[PROJECT_BASE_URL].docker.localhost:[PROJEC_PORT]
+
+# phpMyAdmin
+http://pma.[PROJECT_BASE_URL].docker.localhost:[PROJEC_PORT]
+
+# Mailhog
+http://mailhog.[PROJECT_BASE_URL].docker.localhost:[PROJEC_PORT]
 ```
 
 ## Optional installation command
