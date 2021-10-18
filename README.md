@@ -76,6 +76,12 @@ http://mailhog.[PROJECT_BASE_URL].docker.localhost:[PROJEC_PORT]
 drush -y si social --db-url=mysql://drupal:drupal@mysql/drupal --account-pass=admin social_module_configure_form.select_all='TRUE' install_configure_form.update_status_module='array(FALSE,FALSE)' --site-name='Open Social'; drush cset swiftmailer.transport transport 'smtp' -y; drush cset swiftmailer.transport smtp_host 'localhost' -y; drush cset swiftmailer.transport smtp_port 1025 -y; drush en social_demo -y; drush cc drush; drush sda file user group topic event event_enrollment post comment like; drush pmu social_demo -y; drush cc drush; drush image-flush --all; drush cron; drush sapi-rt; drush ev 'node_access_rebuild()'; drush en -y config_update config_update_ui devel devel_generate dblog views_ui field_ui contextual
 ```
 
+## Custom aliases for the php container
+| Command                  | Description            |
+| ------------------------ | ---------------------- |
+| dsi                      | Drush install a new site with admin/admin credentials and download and enable admin_toolbar. |
+| dsisocial                | Drush install open social profile ( requires the right codebase ). |
+
 ## Xdebug and PHP Storm
 
 Xdebug should work out of the box from the server, there is only one configuration needed:
