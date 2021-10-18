@@ -49,6 +49,7 @@ services:
 #      MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
     volumes:
     - ../:/var/www/html:cached
+    - ./scripts/custom-shell-init.sh:/docker-entrypoint-init.d/custom-shell-init.sh
 ## For XHProf and Xdebug profiler traces
 #    - files:/mnt/files
 
