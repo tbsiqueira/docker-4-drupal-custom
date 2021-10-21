@@ -81,6 +81,9 @@ drush -y si social --db-url=mysql://drupal:drupal@mysql/drupal --account-pass=ad
 | ------------------------ | ---------------------- |
 | dsi                      | Drush install a new site with admin/admin credentials and download and enable admin_toolbar. |
 | dsisocial                | Drush install open social profile ( requires the right codebase ). |
+| stanbaseline             | Creates a new php stan baseline. Please note that the stan scripts needs to be adjusted to the root "/var/www/html/html". |
+| stancheck                | Executes the phpstan check. |
+| cscheck                  | Executes the code sniffer checks. |
 
 ## Xdebug and PHP Storm
 
