@@ -16,5 +16,11 @@ chmod +x /usr/local/bin/stanbaseline
 echo -e "#!/bin/bash\n/var/www/html/vendor/bin/phpstan analyse --configuration /var/www/html/html/profiles/contrib/social/phpstan.neon --memory-limit=4G" > /usr/local/bin/stancheck
 chmod +x /usr/local/bin/stancheck
 
-echo -e "#!/bin/bash\ncd /var/www/html/html/profiles/contrib/social && sh /var/www/html/scripts/social/check-coding-standards.sh " > /usr/local/bin/cscheck
+echo -e "#!/bin/bash\ncd /var/www/html/html/profiles/contrib/social && sh /var/www/html/scripts/social/check-coding-standards.sh" > /usr/local/bin/cscheck
 chmod +x /usr/local/bin/cscheck
+
+echo -e "#!/bin/bash\nsh /var/www/html/scripts/social/run-tests.sh" > /usr/local/bin/unitcheck
+chmod +x /usr/local/bin/unitcheck
+
+echo -e "#!/bin/bash\nstancheck && cscheck && unitcheck" > /usr/local/bin/allcheck
+chmod +x /usr/local/bin/allcheck

@@ -84,6 +84,8 @@ drush -y si social --db-url=mysql://drupal:drupal@mysql/drupal --account-pass=ad
 | stanbaseline             | Creates a new php stan baseline. Please note that the stan scripts needs to be adjusted to the root "/var/www/html/html". |
 | stancheck                | Executes the phpstan check. |
 | cscheck                  | Executes the code sniffer checks. |
+| unitcheck                | Executes the unit tests on social profile. |
+| allcheck                 | Executes all tests. |
 
 ## Xdebug and PHP Storm
 
