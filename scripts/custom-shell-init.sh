@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
-# Ignore errors.
 set -e
+
+# Define permission for php-xdebug.log file.
+XDEBUG_LOG=/tmp/php-xdebug.log
+if test -f "$XDEBUG_LOG"; then
+    sudo chmod 777 "$XDEBUG_LOG"
+else
+    touch "$XDEBUG_LOG"
+    sudo chmod 777 "$XDEBUG_LOG"
+fi
 
 # Echo a alias to a bin file and adds execution permission to that bin.
 echo -e "#!/bin/bash\ncomposer require drupal/admin_toolbar && drush si -y --db-url=mysql://drupal:drupal@mysql/drupal --account-pass=admin && drush en admin_toolbar -y && drush cr" > /usr/local/bin/dsi
