@@ -4,6 +4,11 @@ This is a custom "ready-to-use" docker stack based on `docker4Drupal`. If you ar
 
 For a quick set-up guide please check the steps below.
 
+## Next improvements 
+
+- [ ] Allow custom changes to the `.env` file;
+- [ ] Add behat tests;
+
 ## Assumptions
 
 This `docker-4-drupal-custom` config assumes a couple of things:
