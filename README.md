@@ -61,7 +61,7 @@ make up
 After the containers start, it's time to switch to the docker php container shell and install Drupal Social
 ```
 make shell
-drush -y site:install social --db-url=mysql://drupal:drupal@mysql:3306/drupal
+dsisocial
 ```
 
 Once the installation finishes, the website is available through the same url that was configured at `.env` file:
@@ -74,11 +74,6 @@ http://pma.[PROJECT_BASE_URL].docker.localhost:[PROJEC_PORT]
 
 # Mailhog
 http://mailhog.[PROJECT_BASE_URL].docker.localhost:[PROJEC_PORT]
-```
-
-## Optional installation command
-```
-drush -y si social --db-url=mysql://drupal:drupal@mysql/drupal --account-pass=admin social_module_configure_form.select_all='TRUE' install_configure_form.update_status_module='array(FALSE,FALSE)' --site-name='Open Social'; drush cset swiftmailer.transport transport 'smtp' -y; drush cset swiftmailer.transport smtp_host 'localhost' -y; drush cset swiftmailer.transport smtp_port 1025 -y; drush en social_demo -y; drush cc drush; drush sda file user group topic event event_enrollment post comment like; drush pmu social_demo -y; drush cc drush; drush image-flush --all; drush cron; drush sapi-rt; drush ev 'node_access_rebuild()'; drush en -y config_update config_update_ui devel devel_generate dblog views_ui field_ui contextual
 ```
 
 ## Custom aliases for the php container
