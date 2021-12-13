@@ -9,6 +9,10 @@ For a quick set-up guide please check the steps below.
 - [ ] Allow custom changes to the `.env` file;
 - [ ] Add behat tests;
 
+## Docker Desktop install
+
+https://www.docker.com/products/docker-desktop
+
 ## Assumptions
 
 This `docker-4-drupal-custom` config assumes a couple of things:
