@@ -2,6 +2,7 @@ version: "3.7"
 
 services:
   mysql:
+    platform: linux/x86_64
     image: mysql:$MYSQL_TAG
     container_name: "${PROJECT_NAME}_mysql"
     stop_grace_period: 30s
@@ -43,6 +44,7 @@ services:
       PHP_XDEBUG_IDEKEY: "phpstorm"
       PHP_XDEBUG_CLIENT_HOST: host.docker.internal # Docker 18.03+ Mac/Win
       PHP_XDEBUG_LOG: /tmp/php-xdebug.log
+      PHP_XDEBUG_START_WITH_REQUEST: yes
 #      # PHPUnit Drupal testing configurations
 #      SIMPLETEST_BASE_URL: "http://mysql"
 #      SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
@@ -53,14 +55,14 @@ services:
 ## For XHProf and Xdebug profiler traces
 #    - files:/mnt/files
 
-  crond:
-    image: wodby/drupal-php:$PHP_TAG
-    container_name: "${PROJECT_NAME}_crond"
-    environment:
-      CRONTAB: "0 * * * * drush -r /var/www/html/html cron"
-    command: sudo -E LD_PRELOAD=/usr/lib/preloadable_libiconv.so crond -f -d 0
-    volumes:
-    - ../:/var/www/html:cached
+#  crond:
+#    image: wodby/drupal-php:$PHP_TAG
+#    container_name: "${PROJECT_NAME}_crond"
+#    environment:
+#      CRONTAB: "0 * * * * drush -r /var/www/html/html cron"
+#    command: sudo -E LD_PRELOAD=/usr/lib/preloadable_libiconv.so crond -f -d 0
+#    volumes:
+#    - ../:/var/www/html:cached
 
   mailhog:
     image: mailhog/mailhog
@@ -114,16 +116,16 @@ services:
 #    labels:
 #    - "traefik.http.routers.${PROJECT_NAME}_adminer.rule=Host(`adminer.${PROJECT_BASE_URL}`)"
 
-  pma:
-    image: phpmyadmin/phpmyadmin
-    container_name: "${PROJECT_NAME}_pma"
-    environment:
-      PMA_HOST: $DB_HOST
-      PMA_USER: $DB_USER
-      PMA_PASSWORD: $DB_PASSWORD
-      UPLOAD_LIMIT: 1G
-    labels:
-    - "traefik.http.routers.${PROJECT_NAME}_pma.rule=Host(`pma.${PROJECT_BASE_URL}`)"
+#  pma:
+#    image: phpmyadmin/phpmyadmin
+#    container_name: "${PROJECT_NAME}_pma"
+#    environment:
+#      PMA_HOST: $DB_HOST
+#      PMA_USER: $DB_USER
+#      PMA_PASSWORD: $DB_PASSWORD
+#      UPLOAD_LIMIT: 1G
+#    labels:
+#    - "traefik.http.routers.${PROJECT_NAME}_pma.rule=Host(`pma.${PROJECT_BASE_URL}`)"
 
 #  solr:
 #    image: wodby/solr:$SOLR_TAG
