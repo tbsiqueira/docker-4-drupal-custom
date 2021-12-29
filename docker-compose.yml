@@ -1,10 +1,9 @@
 version: "3.7"
 
 services:
-  mysql:
-    platform: linux/x86_64
-    image: mysql:$MYSQL_TAG
-    container_name: "${PROJECT_NAME}_mysql"
+  mariadb:
+    image: wodby/mariadb:$MARIADB_TAG
+    container_name: "${PROJECT_NAME}_mariadb"
     stop_grace_period: 30s
     environment:
       MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
