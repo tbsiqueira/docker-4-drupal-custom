@@ -43,7 +43,7 @@ services:
       PHP_XDEBUG_IDEKEY: "phpstorm"
       PHP_XDEBUG_CLIENT_HOST: host.docker.internal # Docker 18.03+ Mac/Win
       PHP_XDEBUG_LOG: /tmp/php-xdebug.log
-      PHP_XDEBUG_START_WITH_REQUEST: yes
+      PHP_XDEBUG_START_WITH_REQUEST: "yes"
 #      # PHPUnit Drupal testing configurations
 #      SIMPLETEST_BASE_URL: "http://mysql"
 #      SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
