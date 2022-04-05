@@ -21,12 +21,10 @@ up:
 	@echo "Starting up containers for $(PROJECT_NAME)..."
 	docker-compose pull
 	docker-compose up -d --remove-orphans
-	@echo "http://$(PROJECT_BASE_URL):$(PROJECT_PORT)"
 
 .PHONY: mutagen
 mutagen:
 	docker-compose up -d mutagen
-	mutagen project start -f mutagen/config.yml
 
 ## down	:	Stop containers.
 .PHONY: down
