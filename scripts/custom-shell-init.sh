@@ -35,3 +35,6 @@ chmod +x /usr/local/bin/allcheck
 
 echo -e "#!/bin/bash\ndrush sql-drop -y && drush sql-cli < /var/www/html/docker-4-drupal-custom/_resources/database-dumps/\$1.sql && drush cr\nif [ \"\$2\" = true ] ; then\n drush updb -y && drush cr\nfi" > /usr/local/bin/importdb
 chmod +x /usr/local/bin/importdb
+
+echo -e "#!/bin/bash\ndrush sql-drop -y && drush sql-cli < /var/www/html/docker-4-drupal-custom/_resources/database-dumps/\$1.sql && drush cr\nif [ \"\$2\" = true ] ; then\n drush updb -y && drush cr\nfi" > /usr/local/bin/importdb
+chmod +x /usr/local/bin/newcommand
