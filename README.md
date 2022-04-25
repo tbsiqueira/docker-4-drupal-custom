@@ -90,6 +90,7 @@ http://mailhog.[PROJECT_BASE_URL].docker.localhost:[PROJEC_PORT]
 | cscheck                  | Executes the code sniffer checks. |
 | unitcheck                | Executes the unit tests on social profile. |
 | allcheck                 | Executes all tests. |
+| importdb {database-name} [true] | Import a database from "[DOCKER-DIRECTORY]/_resources/database-dumps/{database-name}.sql", if second parameter is true db-update will be executed  |
 
 ## Xdebug and PHP Storm
 
